@@ -12,14 +12,14 @@ public class ArvorePatricia {
   private int nbitsChave;
  
   // @{\it Retorna o i-\'esimo bit da chave k a partir da esquerda}@
-  private int bit (int i, char k) {
+  /*private int bit (int i, char k) {
     if (i == 0) return 0;
     int c = (int)k;
     for (int j = 1; j <= this.nbitsChave - i; j++) c = c/2;
     return c % 2;
-  }
+  }*/
 
-    public int []bit (String k){
+    public int bit (int a,String k){
         int []binario = new int[130];
         for (int i = 0; i < k.length(); i++){
             for (int j = 7, c =k.charAt(i) ; j >=0; j--){
@@ -27,7 +27,7 @@ public class ArvorePatricia {
                 c/=2;
             }
         }
-        return binario;
+        return binario[a];
     }
     
   // @{\it Verifica se p \'e n\'o externo}@

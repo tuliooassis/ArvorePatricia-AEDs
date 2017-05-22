@@ -1,8 +1,13 @@
 package cap5;
-import cap4.PermutacaoRandomica;
+import cap4.*;
+import cap5.*;
+import java.io.EOFException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 
 public class TestaArvorePat {
-  public static void main (String[] args) {
+  public static void main (String[] args) throws FileNotFoundException, IOException {
     ArvorePatricia dicionario = new ArvorePatricia (8);
     int min = 32, max = 126;
     
@@ -35,13 +40,32 @@ public class TestaArvorePat {
 
     //char[] c = new char[3];
     //c[0]='A';c[1]='B';c[2]='C';
-    String c = "ABCDEFGHIJ";
-    int bits [] = dicionario.bit(c);
+//    String c = "ABCDEFGHIJ";
+//    for (int i = 0; i < 128; i ++){
+//        int bit = dicionario.bit(i, c);
+//
+//        if (i % 8 == 0)
+//              System.out.print(" ");
+//          System.out.print(bit);
+//          
+//    }
+    try{
+    Item it = new Item();
+    RandomAccessFile arq = new RandomAccessFile("./arq.txt", "r");
+    it.leArq(arq);
+    
     for (int i = 0; i < 128; i ++){
+        int bit = dicionario.bit(i, it.toString());
+
         if (i % 8 == 0)
               System.out.print(" ");
-          System.out.print(bits[i]);
+          System.out.print(bit);
           
+    }
+    } catch (FileNotFoundException a){
+        System.out.println("deu ruim");
+    } catch (EOFException a ){
+        System.out.println("deu ruim tb");
     }
   }
 }

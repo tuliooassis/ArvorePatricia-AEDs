@@ -30,8 +30,8 @@ public class PermutacaoRandomica {
   }
   public static void main (String[] args) {
     int tam = 20, n =20;
-    MeuItem v[] = new MeuItem[tam + 1];
-    for (int i = 1; i <= n; i++) v[i] = new MeuItem (i);
+    Item v[] = new Item[tam + 1];
+    for (int i = 1; i <= n; i++) v[i] = new Item (i);
     permut (v, n);
     for (int i = 1; i <= n; i++) System.out.print (v[i].toString () + " ");
     System.out.println ();
