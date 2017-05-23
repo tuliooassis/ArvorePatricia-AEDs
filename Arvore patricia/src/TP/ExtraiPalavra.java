@@ -14,19 +14,20 @@ public class ExtraiPalavra {
         // @{\it Os delimitadores devem estar juntos em uma \'unica linha do arquivo}@ 
         this.delimitadores = arqDelim.readLine() + "\r\n \t"+'\n'; 
         this.linhaAtual = 0;
-        this.colunaAtual = 0;
+        this.colunaAtual = 1;
         this.palavras = null;
-    }  
+    }
+        
     public String proximaPalavra () throws Exception{
         if (palavras == null || !palavras.hasMoreTokens()) {
             String linha = arqTxt.readLine();
             this.linhaAtual++;
-            this.colunaAtual = 0;
+            this.colunaAtual = 1;
             if (linha == null) return null; 
             this.palavras = new StringTokenizer (linha, this.delimitadores);
             if (!palavras.hasMoreTokens()) return ""; // @{\it ignora delimitadores}@
         }
-        this.colunaAtual++;
+//        this.colunaAtual++;
         return this.palavras.nextToken ();
     }  
     public void fecharArquivos () throws Exception {
@@ -41,6 +42,8 @@ public class ExtraiPalavra {
     public int getColunaAtual() {
         return colunaAtual;
     }
-  
-    
+
+    public void setColunaAtual(int colunaAtual) {
+        this.colunaAtual = colunaAtual;
+    }    
 }
