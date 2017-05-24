@@ -11,13 +11,11 @@ public class TP {
         try {
             ExtraiPalavra ep = new ExtraiPalavra("del.txt", "arq.txt");
             String palavra = ep.proximaPalavra();
-            ep.setColunaAtual(1);
             while (palavra != null){
                 dicionario.insere(palavra, ep.getLinhaAtual(),ep.getColunaAtual());
-                ep.setColunaAtual(ep.getColunaAtual()+palavra.length()+1);
                 palavra = ep.proximaPalavra();
             }
-            dicionario.pesquisa("formacao");
+            dicionario.pesquisa("a");
         }
         catch (FileNotFoundException a){
             System.out.println("Arquivo não encontrado!");
